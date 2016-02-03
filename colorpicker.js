@@ -266,6 +266,10 @@
             
             var hsvGradient = slideClone.getElementById('gradient-hsv');
             
+            if (null == hsvGradient) {
+                hsvGradient = slideClone.children[0].children[0];
+            }
+
             var hsvRect = slideClone.getElementsByTagName('rect')[0];
             
             hsvGradient.id = 'gradient-hsv-' + uniqID;
@@ -274,6 +278,10 @@
             var blackAndWhiteGradients = [pickerClone.getElementById('gradient-black'), pickerClone.getElementById('gradient-white')];
             var whiteAndBlackRects = pickerClone.getElementsByTagName('rect');
             
+            if (null === blackAndWhiteGradients[0] && null === blackAndWhiteGradients[1]) {
+                blackAndWhiteGradients = [pickerClone.children[0].children[0], pickerClone.children[0].children[1]];
+            }
+
             blackAndWhiteGradients[0].id = 'gradient-black-' + uniqID;
             blackAndWhiteGradients[1].id = 'gradient-white-' + uniqID;
             
